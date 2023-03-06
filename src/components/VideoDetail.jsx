@@ -30,7 +30,9 @@ const VideoDetail = () => {
   }, [id]);
 
   //if(!fetchVideos?.snippet) return "Loading...";
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box minHeight="95vh">
       <Stack direction={{ xs: "column", md: "row" }}>

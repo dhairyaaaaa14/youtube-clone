@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, CardContent, CardMedia, Typography } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -7,6 +7,9 @@ import { demoProfilePicture } from "../utils/constants";
 
 const ChannelCard = ({ channelDetail,marginTop }) => {
   console.log(channelDetail)
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return channelDetail!==null &&  (
     <Box
       sx={{

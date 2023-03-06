@@ -26,6 +26,9 @@ const ChannelDetail = () => {
     dispatch(fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`));
   }, [id]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Box minHeight="95vh">
       <Box>

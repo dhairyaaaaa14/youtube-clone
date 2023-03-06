@@ -24,6 +24,9 @@ const Feed = () => {
 
 
   }, [selectedCategory]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
