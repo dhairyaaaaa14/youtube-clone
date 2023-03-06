@@ -3,6 +3,7 @@ import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
 import  test  from "../images/test.gif"
 import SearchBar from "./SearchBar";
+import {logo} from "../utils/constants"
 
 const Navbar = () => (
   <Stack
@@ -17,10 +18,10 @@ const Navbar = () => (
     }}
   >
     <Link to="/" style={{display:'flex',alignItems:'center'}}>
-      <img src={test} alt="logo" height={80} width={120} />
+      <img src={test} alt="logo" height={80}  p={0} className="logo"/>
     </Link>
 
-    <div style={{backgroundColor:"black", height:"15px", width:"40px", position:"absolute", top:"15px", left:"100px"}}>
+    <div className="logo-hide">
 
     </div>
 

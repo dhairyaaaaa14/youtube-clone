@@ -61,7 +61,14 @@ a {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
-
+.logo-hide{
+  background-color: black;
+    height: 15px;
+    width: 40px;
+    position: absolute;
+    top: 15px;
+    left: 100px;
+}
 @media screen and (max-width: 900px) {
   .category-btn{
     margin: 10px;
@@ -84,5 +91,13 @@ a {
   }
   .search-bar{
     width:200px;
+  }
+  .logo{
+    height: 45px;
+
+  }
+  .logo-hide{
+    width: 20px;
+    left: 57px;
   }
 }
