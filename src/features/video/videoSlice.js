@@ -40,15 +40,26 @@ const videoSlice = createSlice({
   name: "videos",
   initialState,
   reducer: {},
+  isLoading:true,
   extraReducers: {
+
+    [fetchFromAPI.pending]: (state, { payload }) => {
+      console.log("Fetched successfully");
+      return { ...state, isLoading: true };
+    },
+    [fetchChannelDetails.pending]: (state, { payload }) => {
+      console.log("Fetched successfully");
+      return { ...state, isLoading: true };
+    },
     [fetchFromAPI.fulfilled]: (state, { payload }) => {
       console.log("Fetched successfully");
-      return { ...state, videos: payload };
+      return { ...state, videos: payload, isLoading: false  };
     },
+
     [fetchChannelDetails.fulfilled]: (state, { payload }) => {
       console.log("Fetched successfully");
       console.log(payload)
-      return { ...state, channelDetails: payload.items[0] };
+      return { ...state, channelDetails: payload.items[0],isLoading: false  };
     },
   },
 });
@@ -56,3 +67,5 @@ const videoSlice = createSlice({
 export const getAllVideos = (state) => state.videos.videos;
 export default videoSlice.reducer;
 export const getChannelDetails = (state) => state.videos.channelDetails;
+
+export const loadingValue = (state) => state.videos.isLoading;

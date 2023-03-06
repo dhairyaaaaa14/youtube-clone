@@ -9,11 +9,14 @@ import {
   getAllVideos,
   fetchChannelDetails,
   getChannelDetails,
+  loadingValue,
 } from "../features/video/videoSlice";
 
+import LoadingSpinner from "./LoadingSpinner";
 const ChannelDetail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const isLoading = useSelector(loadingValue);
   const channelDetails = useSelector(getChannelDetails);
   console.log(channelDetails)
   const videoDetails = useSelector(getAllVideos);
@@ -29,7 +32,7 @@ const ChannelDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return (
+  return  isLoading ? <LoadingSpinner /> : (
     <Box minHeight="95vh">
       <Box>
         <div
@@ -54,6 +57,7 @@ const ChannelDetail = () => {
       </Box>
     </Box>
   );
+  
 };
 
 export default ChannelDetail;

@@ -10,12 +10,15 @@ import {
   fetchFromAPI,
   getAllVideos,
   getChannelDetails,
+  loadingValue
 } from "../features/video/videoSlice";
 import { useSelector } from "react-redux";
+import LoadingSpinner from "./LoadingSpinner";
 
 const VideoDetail = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const isLoading = useSelector(loadingValue);
   const fetchVideos = useSelector(getChannelDetails);
   console.log(fetchVideos);
 
@@ -33,7 +36,7 @@ const VideoDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  return (
+  return  isLoading ? <LoadingSpinner /> :  (
     <Box minHeight="95vh">
       <Stack direction={{ xs: "column", md: "row" }}>
         {fetchVideos.snippet && (

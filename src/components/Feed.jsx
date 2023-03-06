@@ -8,16 +8,21 @@ import { useSelector } from "react-redux";
 
 import { fetchFromAPI } from "../features/video/videoSlice";
 
-
+import { loadingValue } from "../features/video/videoSlice";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Feed = () => {
 
   const dispatch = useDispatch();
   const[selectedCategory,setSelectedCategory] = useState('New')
+  const isLoading = useSelector(loadingValue);
+  
+
  
   useEffect(() => {
     
     dispatch(fetchFromAPI(`search?part=snippet&q=${selectedCategory}`))
+
   
   
     
@@ -28,7 +33,7 @@ const Feed = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  return (
+  return isLoading ? <LoadingSpinner /> :(
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
         sx={{
